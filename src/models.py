@@ -32,14 +32,14 @@ class Post(Base):
     media = relationship('Media', uselist=False, lazy='subquery')
 
 class Comment(Base):
-    __tablename__ == 'comment'
+    __tablename__ = 'comment'
     id = Column(Integer, primary_key=True)
     comment_text = Column(String(500), nullable=False)
     author_id = Column(Integer, ForeignKey('user.id'), nullable=False)
     post_id = Column(Integer, ForeignKey('post.id'), nullable=False)
 
 class Media(Base):
-    __tablename__ == 'media'
+    __tablename__ = 'media'
     id = Column(Integer, primary_key=True)
     media_type = Column(Enum('video', 'picture'), nullable=False)
     url = Column(String(250), nullable=False)
